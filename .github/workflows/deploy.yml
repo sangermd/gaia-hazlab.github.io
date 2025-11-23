@@ -51,14 +51,16 @@ jobs:
           ls -la book/_build/ || echo "Build directory not created"
           ls -la book/_build/html/ || echo "HTML directory not created"
 
-      - name: Copy index.html to _build
+      - name: Prepare site structure
         run: |
-          cp index.html book/_build/html/
+          mkdir -p _site
+          cp index.html _site/
+          cp -r book/_build/html/* _site/book/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'book/_build/html'
+          path: '_site'
 
   deploy:
     if: github.ref == 'refs/heads/main'
