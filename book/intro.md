@@ -2,7 +2,7 @@
 
 ![GAIA HazLab](img/banner.png)
 
-## Geospatial AI for Hazard Laboratory
+## Geophysical AI-driven Integration and Assimilation for climate-compounded geohazard Laboratory
 
 GAIA HazLab is a comprehensive platform dedicated to advancing hazard assessment through the integration of machine learning, geospatial analytics, and data-driven approaches. Our mission is to provide researchers, practitioners, and stakeholders with the tools and resources necessary to understand, predict, and mitigate natural hazards.
 
