@@ -66,6 +66,36 @@
       "email": "mkopfli@uw.edu",
       "github": "",
       "website": ""
+    },
+    {
+      "name": "Scott Henderson",
+      "photo": "scott-henderson.jpg",
+      "role": "Co-PI",
+      "title": "Research Scientist",
+      "affiliation": "eScience Institute, University of Washington",
+      "geo_expertise": "Geodesy, Remote Sensing",
+      "ai_expertise": "Cloud Computing, Data Science",
+      "hazard_focus": "Earthquakes, Volcanoes",
+      "email": "scottyh@uw.edu",
+      "github": "",
+      "website": "",
+      "scholar": "",
+      "orcid": ""
+    },
+    {
+      "name": "Nicoleta Cristea",
+      "photo": "nicoleta-cristea.jpg",
+      "role": "Co-PI",
+      "title": "Research Scientist",
+      "affiliation": "eScience Institute, University of Washington",
+      "geo_expertise": "Hydrology, Climate Science",
+      "ai_expertise": "Data Analytics, Machine Learning",
+      "hazard_focus": "Floods, Droughts",
+      "email": "ncristea@uw.edu",
+      "github": "",
+      "website": "",
+      "scholar": "",
+      "orcid": ""
     }
   ]
 }
