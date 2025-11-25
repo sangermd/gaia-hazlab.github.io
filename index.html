@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GAIA HazLab - Geophysical AI-driven Integration and Assimilation for Hazard Laboratory">
     <meta name="author" content="GAIA HazLab">
+    <link rel="icon" type="image/png" href="book/img/gaia-logo.png">
     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800|Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -74,7 +75,9 @@
 
         .hero {
             margin-top: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.6)), url('book/img/banner.png');
+            background-size: cover;
+            background-position: center;
             color: white;
             padding: 6rem 2rem;
             text-align: center;
@@ -84,12 +87,14 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 3rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-size: 1.25rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .btn {
@@ -234,12 +239,51 @@
                 display: none;
             }
 
+            .hero {
+                padding: 4rem 1rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
 
             .hero p {
                 font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .funder-logos {
+                gap: 2rem;
+            }
+
+            .funder-logo {
+                flex: 0 1 150px;
+            }
+
+            .team-preview {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .team-member-preview img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .team-member-preview h3 {
+                font-size: 0.9rem;
+            }
+
+            .team-member-preview .role {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -311,17 +355,17 @@
         <div class="funder-logos">
             <div class="funder-logo">
                 <a href="https://escience.washington.edu/" target="_blank">
-                    <img src="images/sponsors/escience-logo.png" alt="UW eScience Institute" onerror="this.src='https://escience.washington.edu/wp-content/uploads/2015/10/eScience_Logo_HR.png'">
+                    <img src="https://escience.washington.edu/wp-content/uploads/2015/10/eScience_Logo_HR.png" alt="UW eScience Institute">
                 </a>
             </div>
             <div class="funder-logo">
                 <a href="https://environment.uw.edu/" target="_blank">
-                    <img src="images/sponsors/coenv-logo.svg" alt="UW College of the Environment" onerror="this.src='https://environment.uw.edu/wp-content/uploads/2021/10/CoEnv-logo-purple-gray-1.svg'">
+                    <img src="images/sponsors/coenv-logo.png" alt="UW College of the Environment">
                 </a>
             </div>
             <div class="funder-logo">
-                <a href="https://www.washington.edu/innovation/about/" target="_blank">
-                    <img src="images/sponsors/FFST-Hero.jpg" alt="UW Fund for Future Science and Technology" onerror="this.src='https://s3.us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/98/2021/01/07214903/Innovation-Fund-Logo-Color-H.png'">
+                <a href="https://www.ff-st.org/" target="_blank">
+                    <img src="images/sponsors/FFST-Hero.png" alt="UW Fund for Future Science and Technology">
                 </a>
             </div>
         </div>
@@ -329,36 +373,8 @@
 
     <section class="section" id="people">
         <h2>Team</h2>
-        <div class="team-preview">
-            <div class="team-member-preview">
-                <a href="people.html">
-                    <img src="images/team/marine-denolle.jpg" alt="Marine Denolle" onerror="this.src='https://via.placeholder.com/120/667eea/ffffff?text=MD'">
-                </a>
-                <h3>Marine Denolle</h3>
-                <div class="role">Principal Investigator</div>
-            </div>
-            <!-- Add more team members here -->
-            <div class="team-member-preview">
-                <a href="people.html">
-                    <img src="images/team/placeholder.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/120/667eea/ffffff?text=TM'">
-                </a>
-                <h3>Team Member</h3>
-                <div class="role">Graduate Student</div>
-            </div>
-            <div class="team-member-preview">
-                <a href="people.html">
-                    <img src="images/team/placeholder.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/120/667eea/ffffff?text=TM'">
-                </a>
-                <h3>Team Member</h3>
-                <div class="role">Graduate Student</div>
-            </div>
-            <div class="team-member-preview">
-                <a href="people.html">
-                    <img src="images/team/placeholder.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/120/667eea/ffffff?text=TM'">
-                </a>
-                <h3>Team Member</h3>
-                <div class="role">Undergraduate Researcher</div>
-            </div>
+        <div class="team-preview" id="team-preview">
+            <!-- Team members will be loaded dynamically from data/team.yml -->
         </div>
         <p style="text-align: center; margin-top: 2rem;">
             <a href="people.html" class="btn">View Full Team →</a>
@@ -366,9 +382,11 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 GAIA HazLab. Licensed under the MIT License.</p>
+        <p>&copy; 2025 GAIA HazLab. Licensed under the MIT License.</p>
         <p>University of Washington</p>
     </footer>
+
+    <script src="js/team-loader.js"></script>
 </body>
 
 </html>

@@ -22,9 +22,9 @@ We support multiple data formats to ensure compatibility:
 
 - **Vector Data**: GeoJSON, Shapefile, GeoPackage
 - **Raster Data**: GeoTIFF, NetCDF, HDF5
-- **Tabular Data**: CSV, Parquet, Excel
+- **Tabular Data**: CSV, Parquet
 - **Point Clouds**: LAS, LAZ
-- **Time Series**: NetCDF, Zarr
+- **Time Series**: NetCDF, Zarr, mseed, HDF5
 
 ## Data Access
 

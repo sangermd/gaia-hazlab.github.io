@@ -57,6 +57,8 @@ jobs:
           cp index.html _site/
           cp people.html _site/
           cp -r images _site/ 2>/dev/null || echo "No images directory"
+          cp -r js _site/ 2>/dev/null || echo "No js directory"
+          cp -r data _site/ 2>/dev/null || echo "No data directory"
           cp -r book/_build/html/* _site/book/
 
       - name: Upload artifact
