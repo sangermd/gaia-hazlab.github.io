@@ -2,35 +2,43 @@
 
 ## Overview
 
-The ModelHub is a comprehensive collection of machine learning models and algorithms designed for hazard prediction and analysis. It provides pre-trained models, training pipelines, and tools for developing custom hazard assessment models.
+The ModelHub is a comprehensive collection of machine learning models and algorithms designed for hazard monitoring, prediction, and analysis. We aim to provide pre-trained models, training pipelines, and tools for developing custom hazard assessment models.
 
-## Available Models
+## Models
 
 ### Hazard Prediction Models
 
+#### Extreme Weather Models
+- **Weather Forecasting**, coupling ACE2 with Amtmospheric River Index (Richard Zhuang and Brandon Kerns), and Clima-X (Aditya Grover)
+- **Heatwave Forecasting** (Greg Hakim)
+- **Storm Detector**, detecting thunderstorm from seismic and weather data using deep learning (Akash Kharita, Alexandra Anderson-Frey, Marine Denolle)
+
 #### Seismic Hazard Models
-- **Earthquake Magnitude Prediction**: ML models for predicting earthquake magnitudes
-- **Ground Motion Models**: Deep learning approaches for ground motion estimation
-- **Aftershock Forecasting**: Temporal models for aftershock sequence prediction
+- **Earthquake Wavefields**: deep learning models for data-driven full wavefield and peak ground motions reconstruction (nowcasting) and forecasting (lead Yiyu Ni)
+- **Ground Failure Modeling**: Surrogate model to predict liquefaction and ground failure potential index (lead Morgan Sanger), and its coupling to wavefields (Yiyu \& Morgan)
+- **Strong Earthquake Detection**: deep learning model to detect earthquakes are strong ground motions in seisbench ecosystem.
 
 #### Flood Hazard Models
-- **Flood Extent Mapping**: Computer vision models for flood boundary delineation
-- **Precipitation Forecasting**: Time series models for rainfall prediction
-- **Inundation Modeling**: Physics-informed neural networks for flood propagation
+- **Flood Forecasting**: Flood forecasting using stream gage data, SWE, and meteorological products.
+- **Flash Flood Detection**
 
-#### Landslide Susceptibility Models
+#### Landslide Susceptibility Models (TBD)
+- **Data-Driven Reduced Order Modeling** of Landlab modeling for landscape evolution/erosion and debris flow modeling. 
 - **Susceptibility Mapping**: Random forests and gradient boosting for landslide susceptibility
 - **Triggering Models**: Models linking precipitation and seismic triggers to landslide occurrence
 - **Run-out Prediction**: Neural networks for estimating landslide travel distance
+- **Landslides Detection** using high temporal resolution of multi-sensor geophysical networks (seismic, infrasound, tilt, DAS) and high spatial resolution remote sensing imagery (sentinel+SAR) with Akash Kharita, Scott Henderson, and collab with AI2.
 
 ### Multi-hazard Models
-- **Cascading Hazard Models**: Frameworks for modeling hazard interactions
-- **Compound Event Models**: Statistical and ML approaches for compound hazards
-- **Risk Assessment Models**: Integrated models for multi-hazard risk assessment
+- **Hydromechanical Model** data-driven approach to turn multi-sensor raw data (non co-located seismic, geodetic, meteorological sensors) into real time hydromechanical properties (Manuela Koepfli)
+<!-- - **Cascading Hazard Models**: Frameworks for modeling hazard interactions -->
+<!-- - **Compound Event Models**: Statistical and ML approaches for compound hazards -->
+<!-- - **Risk Assessment Models**: Integrated models for multi-hazard risk assessment -->
 
 ## Model Architecture
 
-### Deep Learning Models
+This is the draft of a common framework.
+### Deep Learning Models 
 
 ```python
 # Example: Using a pre-trained flood detection model
