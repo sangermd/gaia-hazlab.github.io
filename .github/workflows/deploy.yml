@@ -37,7 +37,7 @@ jobs:
           frozen: true
 
       - name: Build website
-        run: pixi run build
+        run: pixi run build-ci
 
       - name: Spellcheck
         run: pixi run spellcheck
@@ -45,26 +45,10 @@ jobs:
       - name: Linkcheck
         run: pixi run linkcheck
 
-      - name: List build directory
-        run: |
-          ls -la _build/ || echo "Build directory not created"
-          ls -la _build/html/ || echo "HTML directory not created"
-
-      - name: Prepare site structure
-        run: |
-          mkdir -p _site/book
-          cp index.html _site/
-          cp people.html _site/
-          cp -r images _site/ 2>/dev/null || echo "No images directory"
-          cp -r js _site/ 2>/dev/null || echo "No js directory"
-          cp -r data _site/ 2>/dev/null || echo "No data directory"
-          cp -r img _site/book/ 2>/dev/null || echo "No book/img directory"
-          cp -r _build/html/* _site/book/
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: '_site'
+          path: 'website'
 
   deploy:
     if: github.ref == 'refs/heads/main'

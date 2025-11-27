@@ -12,36 +12,31 @@ Each project page can be found in the navigation menu on the left-hand side of t
 :gutter: 3
 
 :::{grid-item-card} 🎯 Problem Statement
-:link: chapters/problem_statement
-:link-type: doc
+:link: chapters/problem-statement
 
 Understand the challenges and objectives in hazard assessment. Define key research questions and goals.
 :::
 
 :::{grid-item-card} 📊 DataHub
 :link: chapters/datahub
-:link-type: doc
 
 Access our centralized repository of hazard-related geospatial data, datasets, and management tools.
 :::
 
 :::{grid-item-card} 🤖 ModelHub
 :link: chapters/modelhub
-:link-type: doc
 
 Explore machine learning models and algorithms for hazard prediction and analysis.
 :::
 
 :::{grid-item-card} 📈 HazEvalHub
 :link: chapters/hazevalhub
-:link-type: doc
 
 Utilize frameworks and tools for evaluating hazard assessments with validation methodologies.
 :::
 
 :::{grid-item-card} 📚 Resources
 :link: chapters/resources
-:link-type: doc
 
 Access tutorials, references, publications, and community contributions.
 :::
