@@ -9,7 +9,7 @@ The ModelHub is a comprehensive collection of machine learning models and algori
 ### Hazard Prediction Models
 
 #### Extreme Weather Models
-- **Weather Forecasting**, coupling ACE2 with Amtmospheric River Index (Richard Zhuang and Brandon Kerns), and Clima-X (Aditya Grover)
+- **Weather Forecasting**, coupling ACE2 with Amtmospheric River Index (Richard Zhuang and Brandon Kerns), and Clima-X (Aditya Grover). Examples of AR tracking and forecast [here](https://orca.atmos.washington.edu/~bkerns/realtime/ar/)
 - **Heatwave Forecasting** (Greg Hakim)
 - **Storm Detector**, detecting thunderstorm from seismic and weather data using deep learning (Akash Kharita, Alexandra Anderson-Frey, Marine Denolle)
 
