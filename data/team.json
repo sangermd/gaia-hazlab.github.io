@@ -2,7 +2,7 @@
   "team_members": [
     {
       "name": "Marine Denolle",
-      "photo": "/images/team/marine-denolle.jpg",
+      "photo": "marine-denolle.jpg",
       "role": "Lead PI",
       "title": "Associate Professor",
       "affiliation": "Earth and Space Sciences, University of Washington",
@@ -17,7 +17,7 @@
     },
     {
       "name": "Michael Hemmett",
-      "photo": "/images/team/michael-hemmett.jpg",
+      "photo": "michael-hemmett.jpg",
       "role": "Graduate Student",
       "title": "PhD Student",
       "affiliation": "Earth and Space Sciences, University of Washington",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Yiyu Ni",
-      "photo": "/images/team/yiyu-ni.jpg",
+      "photo": "yiyu-ni.jpg",
       "role": "Graduate Student",
       "title": "PhD Student",
       "affiliation": "Earth and Space Sciences, University of Washington",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Akash Kharita",
-      "photo": "/images/team/akash-kharita.jpg",
+      "photo": "akash-kharita.jpg",
       "role": "Graduate Student",
       "title": "PhD Student",
       "affiliation": "Earth and Space Sciences, University of Washington",
@@ -56,7 +56,7 @@
     },
     {
       "name": "Manuela Köpfli",
-      "photo": "/images/team/manuela-kopfli.jpg",
+      "photo": "manuela-kopfli.jpg",
       "role": "Graduate Student",
       "title": "PhD Student",
       "affiliation": "Earth and Space Sciences, University of Washington",
@@ -69,7 +69,7 @@
     },
     {
       "name": "Scott Henderson",
-      "photo": "https://avatars.githubusercontent.com/u/3924836?v=4",
+      "photo": "scott-henderson.jpg",
       "role": "Co-PI",
       "title": "Research Scientist",
       "affiliation": "eScience Institute, University of Washington",
@@ -77,14 +77,14 @@
       "ai_expertise": "Cloud Computing, Data Science",
       "hazard_focus": "Earthquakes, Volcanoes",
       "email": "scottyh@uw.edu",
-      "github": "https://github.com/scottyhq",
-      "website": "https://scottyhq.github.io",
+      "github": "",
+      "website": "",
       "scholar": "",
       "orcid": ""
     },
     {
       "name": "Nicoleta Cristea",
-      "photo": "https://github.com/NCristea.png",
+      "photo": "nicoleta-cristea.jpg",
       "role": "Co-PI",
       "title": "Research Scientist",
       "affiliation": "eScience Institute, University of Washington",
@@ -92,18 +92,18 @@
       "ai_expertise": "Data Analytics, Machine Learning",
       "hazard_focus": "Floods, Droughts",
       "email": "ncristea@uw.edu",
-      "github": "https://github.com/NCristea",
+      "github": "",
       "website": "",
       "scholar": "",
       "orcid": ""
     },
-       {
+    {
       "name": "Abdullah Al Mehedi",
       "photo": "abdullah-al-mehedi.jpg",
       "role": "Postdoctoral Researcher",
       "title": "Postdoctoral Researcher",
       "affiliation": "Civil and Environmental Engineering, University of Washington",
-      "geo_expertise": "Hydrology, Climate Science, Floods",
+      "geo_expertise": "Hydrology, Climate Science",
       "ai_expertise": "Physics-informed ML, Deep Learning",
       "hazard_focus": "Floods, Debris flow",
       "email": "amehedi@uw.edu",
@@ -112,31 +112,20 @@
       "scholar": "https://scholar.google.com/citations?user=4DR2F4kAAAAJ&hl=en",
       "orcid": "https://orcid.org/0000-0002-1610-2250"
     },
-       {
+    {
       "name": "Erkan Istanbulluoglu",
-      "photo": "Erkan.jpg",
+      "photo": "erkan.jpg",
       "role": "Professor",
       "title": "Professor",
       "affiliation": "Civil and Environmental Engineering, University of Washington",
-      "geo_expertise": "Hydrology, EcoloHydrology, Geomorphology",
+      "geo_expertise": "Hydrology, Ecology, Landslides Dynamics",
       "ai_expertise": "Data-Driven",
-      "hazard_focus": "Landslides, Debris flow, Wildfires, Floods",
+      "hazard_focus": "Landslides, Debris flow",
       "email": "erkani@uw.edu",
       "website": "https://www.ce.washington.edu/facultyfinder/erkan-istanbulluoglu",
       "github": "https://github.com/erkanistan",
       "scholar": "https://scholar.google.com/citations?user=kjJ2GSoAAAAJ&hl=en",
       "orcid": "https://orcid.org/0000-0002-9673-4986"
-    },
-       {
-      "name": "Hunter Jimenez",
-      "photo": "XX",
-      "role": "Graduate Student",
-      "title": "Graduate Student",
-      "affiliation": "Civil and Environmental Engineering, University of Washington",
-      "geo_expertise": "Hydrology,  Geomorphology",
-      "ai_expertise": "Data-Driven",
-      "hazard_focus": "Debris Flows",
-      "website": "https://www.ce.washington.edu/facultyfinder/erkan-istanbulluoglu",
-      "github": "https://github.com/HunterJimenez"   }
+    }
   ]
 }

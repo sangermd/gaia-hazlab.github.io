@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GAIA HazLab</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GAIA HazLab - Geophysical AI-driven Integration and Assimilation for Hazard Laboratory">
+    <meta name="author" content="GAIA HazLab">
+    <link rel="icon" type="image/png" href="book/img/gaia-hazalab-logo.png">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800|Roboto:300,400,700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.6)), url('book/img/banner.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .funders {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .funders h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .funder-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .funder-logo {
+            flex: 0 1 200px;
+        }
+
+        .funder-logo img {
+            max-width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        .team-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .team-member-preview {
+            text-align: center;
+        }
+
+        .team-member-preview img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member-preview img:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member-preview h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: #333;
+        }
+
+        .team-member-preview .role {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .funder-logos {
+                gap: 2rem;
+            }
+
+            .funder-logo {
+                flex: 0 1 150px;
+            }
+
+            .team-preview {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .team-member-preview img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .team-member-preview h3 {
+                font-size: 0.9rem;
+            }
+
+            .team-member-preview .role {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">GAIA HazLab</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#people">People</a></li>
+                    <li><a href="book/index.html">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>GAIA HazLab</h1>
+        <p>Geophysical AI-driven Integration and Assimilation for Hazard Laboratory - Advancing hazard assessment through geophysical data, models, and AI</p>
+        <a href="book/index.html" class="btn">Explore Documentation</a>
+    </section>
+
+    <section class="section" id="about">
+        <h2>About GAIA HazLab</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+            GAIA HazLab is a comprehensive platform for hazard assessment and evaluation using cutting-edge geophysical AI technologies. 
+            Our integrated approach combines data management, modeling, and evaluation tools to support researchers and practitioners 
+            in understanding and mitigating natural hazards.
+        </p>
+    </section>
+
+    <section class="section" id="resources">
+        <h2>Platform Components</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Problem Statement</h3>
+                <p>Understanding the challenges and objectives in hazard assessment and defining our research goals.</p>
+                <a href="book/chapters/problem_statement.html">Learn More →</a>
+            </div>
+            <div class="card">
+                <h3>DataHub</h3>
+                <p>Centralized repository for hazard-related geospatial data, datasets, and data management tools.</p>
+                <a href="book/chapters/datahub.html">Explore Data →</a>
+            </div>
+            <div class="card">
+                <h3>ModelHub</h3>
+                <p>Collection of machine learning models and algorithms for hazard prediction and analysis.</p>
+                <a href="book/chapters/modelhub.html">View Models →</a>
+            </div>
+            <div class="card">
+                <h3>HazEvalHub</h3>
+                <p>Tools and frameworks for evaluating hazard assessments and validating model performance.</p>
+                <a href="book/chapters/hazevalhub.html">Evaluation Tools →</a>
+            </div>
+            <div class="card">
+                <h3>Resources</h3>
+                <p>Additional resources, tutorials, and references for hazard assessment research.</p>
+                <a href="book/chapters/resources.html">Access Resources →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="funders">
+        <h2>Supported By</h2>
+        <div class="funder-logos">
+            <div class="funder-logo">
+                <a href="https://escience.washington.edu/" target="_blank">
+                    <img src="https://escience.washington.edu/wp-content/uploads/2015/10/eScience_Logo_HR.png" alt="UW eScience Institute">
+                </a>
+            </div>
+            <div class="funder-logo">
+                <a href="https://environment.uw.edu/" target="_blank">
+                    <img src="images/sponsors/coenv-logo.png" alt="UW College of the Environment">
+                </a>
+            </div>
+            <div class="funder-logo">
+                <a href="https://www.ff-st.org/" target="_blank">
+                    <img src="images/sponsors/FFST-Hero.png" alt="UW Fund for Future Science and Technology">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="people">
+        <h2>Team</h2>
+        <div class="team-preview" id="team-preview">
+            <!-- Team members will be loaded dynamically from data/team.yml -->
+        </div>
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="people.html" class="btn">View Full Team →</a>
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 GAIA HazLab. Licensed under the MIT License.</p>
+        <p>University of Washington</p>
+    </footer>
+
+    <script src="js/team-loader.js"></script>
+</body>
+
+</html>

@@ -19,7 +19,7 @@ The ModelHub is a comprehensive collection of machine learning models and algori
 - **Strong Earthquake Detection**: deep learning model to detect earthquakes are strong ground motions in seisbench ecosystem.
 
 #### Flood Hazard Models
-- **Flood Forecasting**: Flood forecasting using stream gage data, SWE, and meteorological products.
+- **Flood Forecasting**: Flood forecasting using stream gauge data, SWE, and meteorological products.
 - **Flash Flood Detection**
 
 #### Landslide Susceptibility Models (TBD)
