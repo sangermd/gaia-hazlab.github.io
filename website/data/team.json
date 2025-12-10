@@ -111,10 +111,10 @@
       "github": "https://github.com/AlMehedi06",
       "scholar": "https://scholar.google.com/citations?user=4DR2F4kAAAAJ&hl=en",
       "orcid": "https://orcid.org/0000-0002-1610-2250"
-    }
+    },
        {
-      "name": " Erkan Istanbulgluolo",
-      "photo": "erkan.jpg",
+      "name": "Erkan Istanbulluoglu",
+      "photo": "Erkan.jpg",
       "role": "Professor",
       "title": "Professor",
       "affiliation": "Civil and Environmental Engineering, University of Washington",
@@ -126,6 +126,18 @@
       "github": "https://github.com/erkanistan",
       "scholar": "https://scholar.google.com/citations?user=kjJ2GSoAAAAJ&hl=en",
       "orcid": "https://orcid.org/0000-0002-9673-4986"
+    }
+       {
+      "name": "Hunter Jimenez",
+      "photo": "XX",
+      "role": "Graduate Student",
+      "title": "Graduate Student",
+      "affiliation": "Civil and Environmental Engineering, University of Washington",
+      "geo_expertise": "Hydrology,  Geomorphology",
+      "ai_expertise": "Data-Driven",
+      "hazard_focus": "Debris Flows",
+      "website": "https://www.ce.washington.edu/facultyfinder/erkan-istanbulluoglu",
+      "github": "https://github.com/HunterJimenez",
     }
   ]
 }
