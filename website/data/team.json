@@ -137,6 +137,21 @@
       "ai_expertise": "Data-Driven",
       "hazard_focus": "Debris Flows",
       "website": "https://www.ce.washington.edu/facultyfinder/erkan-istanbulluoglu",
-      "github": "https://github.com/HunterJimenez"   }
+      "github": "https://github.com/HunterJimenez"   },
+      {
+      "name": "Morgan Sanger",
+      "photo": "Morgan_Photo.jpg",
+      "role": "Graduate Student",
+      "title": "PhD Student",
+      "affiliation": "Civil and Environmental Engineering, University of Washington",
+      "geo_expertise": "Geotechnical Engineering",
+      "ai_expertise": "Mechanics-informed ML, High-Performance Computing",
+      "hazard_focus": "earthquakes, landslides",
+      "email": "sangermd@uw.edu",
+      "website": "https://sangermd.github.io/website/",
+      "github": "https://github.com/sangermd",
+      "scholar": "https://scholar.google.com/citations?user=morgandsanger&user=G3tb03AAAAAJ",
+      "orcid": "https://orcid.org/0000-0002-1280-1898"
+    }
   ]
 }
