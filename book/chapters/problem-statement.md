@@ -65,4 +65,5 @@ Explore the following sections to learn more about how GAIA HazLab addresses the
 - [DataHub](datahub): Discover available datasets and data management tools
 - [ModelHub](modelhub): Explore machine learning models for hazard assessment
 - [HazEvalHub](hazevalhub): Learn about evaluation frameworks and metrics
+- [Structure Monitoring](structure-monitoring): Learn about inferring water table depth and vadose-zone saturation from seismic velocity
 - [Resources](resources): Access tutorials, publications, and additional materials

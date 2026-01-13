@@ -128,7 +128,15 @@ Key publications related to GAIA HazLab:
 
 ### Case Studies
 
-#### 1. Regional Flood Risk Assessment
+#### 1. Structure Monitoring with Seismic Velocity
+
+Inferring water table depth and vadose-zone saturation from time-lapse seismic velocity:
+- See the detailed [Structure Monitoring](structure-monitoring) chapter for methodology
+- DAS cross-sections and regional seismic networks
+- Coupled inversion for geohydrologic state variables
+- Applications to hazard monitoring
+
+#### 2. Regional Flood Risk Assessment
 
 Comprehensive flood risk mapping for a metropolitan area:
 - Data sources and preprocessing
@@ -136,7 +144,7 @@ Comprehensive flood risk mapping for a metropolitan area:
 - Validation and uncertainty analysis
 - Results and recommendations
 
-#### 2. Seismic Hazard Forecasting
+#### 3. Seismic Hazard Forecasting
 
 Machine learning approach to earthquake prediction:
 - Feature engineering from seismic catalogs
@@ -144,7 +152,7 @@ Machine learning approach to earthquake prediction:
 - Operational deployment
 - Performance monitoring
 
-#### 3. Multi-Hazard Risk Analysis
+#### 4. Multi-Hazard Risk Analysis
 
 Integrated assessment of multiple hazard types:
 - Data integration challenges
