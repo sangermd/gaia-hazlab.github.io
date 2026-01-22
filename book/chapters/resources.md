@@ -4,6 +4,9 @@
 
 This section provides additional resources, tutorials, references, and community contributions to support your work with GAIA HazLab.
 
+## Machine Learning in Geoscience
+- [MLGEO Book](https://geo-smart.github.io/mlgeo-book/about_this_book/about_this_book.html)
+
 ## Tutorials
 
 ### Getting Started
@@ -16,7 +19,7 @@ Learn the basics of GAIA HazLab:
 2. **First Steps**: Load data and run a simple model
 3. **Visualization**: Create basic hazard maps
 4. **Evaluation**: Assess model performance
-
+<!-- 
 #### Environment Setup
 
 ```bash
@@ -29,7 +32,7 @@ conda activate gaia-hazlab
 
 # Install additional dependencies
 pip install -e .
-```
+``` -->
 
 ### Data Tutorials
 
@@ -51,7 +54,7 @@ pip install -e .
 
 #### Training Your First Model
 
-```python
+<!-- ```python
 # Example: Training a landslide susceptibility model
 from gaia_hazlab.models import LandslideSusceptibility
 from gaia_hazlab.data import load_training_data
@@ -65,7 +68,7 @@ model.fit(X_train, y_train)
 
 # Save model
 model.save('my_landslide_model.pkl')
-```
+``` -->
 
 #### Transfer Learning
 
@@ -73,92 +76,16 @@ model.save('my_landslide_model.pkl')
 - Domain adaptation techniques
 - Cross-hazard model transfer
 
-### Evaluation Tutorials
-
-#### Model Validation
+### Evaluation 
 
 - Implementing cross-validation
 - Computing performance metrics
 - Generating evaluation reports
 - Interpreting results
 
-## Documentation
-
-### API Reference
-
-Complete API documentation for all modules:
-
-- **Data Module**: Data loading and preprocessing
-- **Models Module**: Model training and inference
-- **Evaluation Module**: Metrics and validation
-- **Visualization Module**: Plotting and mapping
-
-### User Guides
-
-Comprehensive guides for common tasks:
-
-- [Data Management Guide]({{ github_org_url }}/{{ book_repo }}/wiki/data-guide)
-- [Model Development Guide]({{ github_org_url }}/{{ book_repo }}/wiki/model-guide)
-- [Deployment Guide]({{ github_org_url }}/{{ book_repo }}/wiki/deployment-guide)
-
 ## Publications
 
-### Research Papers
 
-Key publications related to GAIA HazLab:
-
-1. **Hazard Assessment with AI** (2024)
-   - Authors: GAIA HazLab Team
-   - Journal: Journal of Hazard Research
-   - DOI: 10.xxxx/xxxx
-
-2. **Machine Learning for Multi-Hazard Prediction** (2024)
-   - Authors: Research Team
-   - Conference: International Conference on Natural Hazards
-   - DOI: 10.xxxx/xxxx
-
-### Technical Reports
-
-- Platform Architecture Overview
-- Data Quality Standards
-- Model Validation Protocols
-- Performance Benchmarking Results
-
-## Example Projects
-
-### Case Studies
-
-#### 1. Structure Monitoring with Seismic Velocity
-
-Inferring water table depth and vadose-zone saturation from time-lapse seismic velocity:
-- See the detailed [Structure Monitoring](structure-monitoring) chapter for methodology
-- DAS cross-sections and regional seismic networks
-- Coupled inversion for geohydrologic state variables
-- Applications to hazard monitoring
-
-#### 2. Regional Flood Risk Assessment
-
-Comprehensive flood risk mapping for a metropolitan area:
-- Data sources and preprocessing
-- Model selection and training
-- Validation and uncertainty analysis
-- Results and recommendations
-
-#### 3. Seismic Hazard Forecasting
-
-Machine learning approach to earthquake prediction:
-- Feature engineering from seismic catalogs
-- Model comparison and selection
-- Operational deployment
-- Performance monitoring
-
-#### 4. Multi-Hazard Risk Analysis
-
-Integrated assessment of multiple hazard types:
-- Data integration challenges
-- Cascading hazard modeling
-- Compound event analysis
-- Decision support tools
 
 ## Community
 
@@ -196,17 +123,9 @@ We are committed to providing a welcoming and inclusive environment. Please read
 
 #### Machine Learning for Geoscience
 
-- Online courses
-- Textbooks and references
-- Tutorial collections
-- Video lectures
+
 
 #### Geospatial Analysis
-
-- GIS fundamentals
-- Remote sensing basics
-- Spatial statistics
-- Geospatial Python libraries
 
 ### Tools and Libraries
 
@@ -224,10 +143,7 @@ Essential tools for hazard assessment:
 **Q: What hazard types does GAIA HazLab support?**
 
 A: Currently we support seismic, hydrological, meteorological, and geomorphological hazards. We're continuously expanding to include more hazard types.
-
-**Q: Can I use GAIA HazLab for commercial applications?**
-
-A: Yes, GAIA HazLab is licensed under the MIT License, which allows commercial use. Please review the license terms.
+<!-- 
 
 **Q: How do I cite GAIA HazLab?**
 
@@ -245,7 +161,7 @@ A: Minimum requirements:
 
 **Q: How do I report bugs or request features?**
 
-A: Please use our [GitHub Issues]({{ github_org_url }}/{{ book_repo }}/issues) page.
+A: Please use our [GitHub Issues]({{ github_org_url }}/{{ book_repo }}/issues) page. -->
 
 ## Citation
 
@@ -270,13 +186,6 @@ If you use GAIA HazLab in your research, please cite:
 - Ask on [GitHub Discussions]({{ github_org_url }}/{{ book_repo }}/discussions)
 - Email: gaia-hazlab@uw.edu (coming soon)
 
-### Office Hours
-
-We hold virtual office hours:
-- When: Every other Tuesday, 2-3 PM PST
-- Where: Zoom (link in GitHub Discussions)
-- What: Q&A, troubleshooting, discussions
-
 ## Updates
 
 Stay informed about GAIA HazLab developments:
@@ -289,7 +198,8 @@ Stay informed about GAIA HazLab developments:
 
 GAIA HazLab is supported by:
 - University of Washington eScience Institute
+- Fund for Science and Technology
 - National Science Foundation
-- Collaborating institutions and researchers
+- Paros Geohazard Center
 
 We thank all contributors and the open-source community for their valuable input and support.

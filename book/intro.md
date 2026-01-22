@@ -1,44 +1,65 @@
-# Project Overview
+---
+title: GAIA HazLab
+---
 
-**Geophysical AI-driven Integration and Assimilation (GAIA) for climate-compounded geohazard Laboratory**
+<div style="position: relative; width: 100%; min-height: 400px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('img/img/banner.png') center/cover no-repeat; color: white; padding: 60px 20px; margin: -20px -20px 40px -20px; border-radius: 8px;">
+  <h1 style="font-size: 3em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">GAIA HazLab</h1>
+  <p style="font-size: 1.3em; max-width: 900px; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);"><strong>A platform for system-science hazard assessment: integrating AI, data, and models to understand, predict, and mitigate climate-compounded geohazards.</strong></p>
+</div>
 
-![GAIA HazLab](img/banner.png)
+---
 
-GAIA HazLab is a comprehensive platform dedicated to advancing hazard assessment through the integration of machine learning, geospatial analytics, and data-driven approaches. Our mission is to provide researchers, practitioners, and stakeholders with the tools and resources necessary to understand, predict, and mitigate natural hazards.
+## What We Do
 
-Each project page can be found in the navigation menu on the left-hand side of this website, see below for short descriptions:
+- **Methodologies:** System-science approaches for linking atmosphere, hydrosphere, and solid Earth.
+- **Technology:**
+	- [DataHub](chapters/datahub): Centralized geospatial hazard data.
+	- [ModelHub](chapters/modelhub): Machine learning models for hazard prediction.
+	- [HazEvalHub](chapters/hazevalhub): Evaluation and validation frameworks.
+	- [Research Software](chapters/research-software): Tools for reproducible, scalable workflows.
+- **Use Cases:**
+	- [WA-2001-2031 Nisqually Earthquake](chapters/wa-2001-2031-nisqually-earthquake)
+	- [WA-2025 River Floods & Sediment Transport](chapters/wa-2025-river-floods-sediment-transport)
+	- [WA-2025 Stehekin Post-fire Debris Flow](chapters/wa-2025-stehekin)
+	- [Convective Thunderstorms](chapters/convective-thunderstorms)
+- **System-Science Nexus:**
+	- [Soil Memory](chapters/soil-memory): Linking atmosphere to solid Earth.
+	- Ocean–Atmosphere coupling (coming soon).
 
-::::{grid} 1 1 2 3
-:gutter: 3
+---
 
-:::{grid-item-card} 🎯 Problem Statement
-:link: chapters/problem-statement
+## Project Organization
 
-Understand the challenges and objectives in hazard assessment. Define key research questions and goals.
-:::
+- [Project Organization](chapters/project-organization): How we work, collaborate, and organize research.
+- [People](../website/people.html): Meet the team.
+- [Resources](chapters/resources): Tutorials, references, and publications.
 
-:::{grid-item-card} 📊 DataHub
-:link: chapters/datahub
+---
 
-Access our centralized repository of hazard-related geospatial data, datasets, and management tools.
-:::
+## Calendar of Events
 
-:::{grid-item-card} 🤖 ModelHub
-:link: chapters/modelhub
+<!-- Placeholder: Fill in with your event timetable -->
+| Date       | Event                                | Location         |
+|------------|--------------------------------------|------------------|
+| Thursdays 1:30pm PT | All Team Meeting                | JHN375/   |
+| Tuesdays 2:00pm PT | Team-Nisqually Meeting                    | JHN375/Online     |
 
-Explore machine learning models and algorithms for hazard prediction and analysis.
-:::
+---
 
-:::{grid-item-card} 📈 HazEvalHub
-:link: chapters/hazevalhub
+## Visual Highlights
 
-Utilize frameworks and tools for evaluating hazard assessments with validation methodologies.
-:::
+<!-- Placeholder for Google Slides embed -->
+<iframe src="https://docs.google.com/presentation/d/1CN1SvWCgHcs24zbrzLPdkYhCEVF7EK1DowXw8rgY3gA/embed?start=true&loop=true&delayms=3000" frameborder="0" width="800" height="480" allowfullscreen></iframe>
 
-:::{grid-item-card} 📚 Resources
-:link: chapters/resources
+---
 
-Access tutorials, references, publications, and community contributions.
-:::
+## Quick Navigation
 
-::::
+- [Technology](#what-we-do)
+- [Use Cases](#what-we-do)
+- [System-Science Nexus](#what-we-do)
+- [Calendar of Events](#calendar-of-events)
+- [Visual Highlights](#visual-highlights)
+- [Project Organization](chapters/project-organization)
+- [People](../website/people.html)
+- [Resources](chapters/resources)

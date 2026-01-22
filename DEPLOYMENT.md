@@ -1,132 +1,120 @@
-# Deployment Guide
+# Deployment Guide (pixi-first)
 
-This guide explains how to deploy the GAIA HazLab website to GitHub Pages.
+This guide explains how to build and deploy the GAIA HazLab website. The repository's CI uses `pixi` to create a reproducible environment and build the site; follow the `pixi` workflow locally when possible. A conda fallback is provided.
+
+## Quick summary
+
+- Preferred local workflow: use `pixi` tasks defined in `pixi.toml`.
+- CI: `.github/workflows/deploy.yml` runs `pixi run build-ci` and deploys the `website` folder to GitHub Pages.
+- Output: the Jupyter Book HTML is placed in `website/book` (this directory is what gets deployed).
 
 ## Prerequisites
 
-The repository is already configured with:
-- GitHub Actions workflow (`.github/workflows/deploy.yml`)
-- Jupyter Book configuration
-- All necessary content files
+- Install `pixi` per https://pixi.sh/dev/installation/ (recommended).
+- Recommended Python: 3.11+ (CI/pixi lock pins newer versions; see `pixi.lock`).
 
-## Enabling GitHub Pages
+## Pixi workflow (recommended)
 
-### Step 1: Configure GitHub Pages
-
-1. Go to your repository on GitHub: `https://github.com/gaia-hazlab/gaia-hazlab.github.io`
-2. Click on **Settings** tab
-3. In the left sidebar, click on **Pages**
-4. Under **Source**, select **GitHub Actions**
-
-### Step 2: Merge to Main
-
-Once the pull request is merged to the `main` branch:
-1. GitHub Actions will automatically trigger
-2. The workflow will:
-   - Build the Jupyter Book
-   - Copy the splashpage to the build directory
-   - Deploy everything to GitHub Pages
-3. Wait a few minutes for the deployment to complete
-
-### Step 3: Access Your Site
-
-Your site will be available at:
-- **URL**: `https://gaia-hazlab.github.io`
-
-## Workflow Details
-
-The GitHub Actions workflow (`.github/workflows/deploy.yml`) performs the following:
-
-1. **Build Job**:
-   - Checks out the repository
-   - Sets up Python 3.11
-   - Installs dependencies (`jupyter-book`, `sphinx-design`)
-   - Builds the Jupyter Book
-   - Copies `index.html` to the build output
-   - Uploads the built site as an artifact
-
-2. **Deploy Job** (runs only on main branch):
-   - Downloads the built site
-   - Deploys to GitHub Pages
-
-## Manual Build (Local Testing)
-
-To build and test locally before deploying:
+After installing `pixi`, from the repository root run:
 
 ```bash
-# Install dependencies
-pip install jupyter-book sphinx-design
+# Serve locally (preview site):
+pixi run serve-all
+
+# Build the book and copy HTML into website/book (local build):
+pixi run build-all
+
+# Run the CI-equivalent build locally (same commands as GitHub Actions):
+pixi run build-ci
+
+# Run link and spell checks (optional):
+pixi run linkcheck
+pixi run spellcheck
+```
+
+Notes:
+- `build-all` and `build-ci` perform `jupyter book build --html`, then move `_build/html` to `website/book` and copy images.
+- The `BASE_URL` environment variable is set in `pixi.toml` (and in CI) to ` /book` so asset URLs resolve correctly on GitHub Pages; keep this unless you change the deployment path.
+
+## Conda fallback (no pixi)
+
+If you prefer conda/mamba without pixi, create an environment and build manually:
+
+```bash
+conda create -n gaia-hazlab python=3.11 -c conda-forge jupyter-book sphinx-design codespell nodejs -y
+conda activate gaia-hazlab
 
 # Build the book
 jupyter-book build book
 
-# The built site will be in book/_build/html/
-# You can view it by starting a local server:
-python -m http.server 8000 --directory book/_build/html
+# Move build to website/book to match CI behavior
+mv book/_build/html website/book
+mkdir -p website/book/img
+cp -R book/img/. website/book/img/
+
+# Preview the full website
+python -m http.server 8000 --directory website
 ```
 
-Then visit `http://localhost:8000` in your browser.
+## Fixing/Generating `book/_toc.yml` (Table of Contents)
 
-## Updating Content
+If the book fails to build because a ToC is missing, generate a minimal `book/_toc.yml`:
 
-To update the website:
+Preferred (if `jupyter-book` CLI supports it):
 
-1. Edit the relevant files:
-   - `index.html` - Landing page
-   - `book/intro.md` - Introduction
-   - `book/chapters/*.md` - Chapter content
-   - `book/_config.yml` - Book configuration
-   - `book/_toc.yml` - Table of contents
+```bash
+jupyter-book init --write-toc book
+# or, depending on Jupyter Book CLI installed:
+jupyter book init --write-toc book
+```
 
-2. Commit and push your changes
+Minimal `book/_toc.yml` example you can create and commit manually:
 
-3. The site will automatically rebuild and deploy (if on main branch)
+```yaml
+format: jb-book
+root: intro
+chapters:
+  - file: chapters/project-organization
+  - file: chapters/datahub
+  - file: chapters/modelhub
+  - file: chapters/hazevalhub
+  - file: chapters/research-software
+  - file: chapters/soil-memory
+  - file: chapters/convective-thunderstorms
+  - file: chapters/wa-2025-river-floods-sediment-transport
+  - file: chapters/wa-2025-stehekin
+  - file: chapters/wa-2001-2031-nisqually-earthquake
+  - file: chapters/resources
+```
+
+Commit `book/_toc.yml` and push before running the CI build.
+
+## What CI does (overview)
+
+The GitHub Actions workflow `.github/workflows/deploy.yml`:
+
+1. Sets `BASE_URL=/book` (so assets reference `/book/...`).
+2. Uses `prefix-dev/setup-pixi` and runs `pixi run build-ci`.
+3. Optionally runs spellcheck and linkcheck.
+4. Uploads `website/` as the Pages artifact and deploys using `actions/deploy-pages`.
+
+If you need to reproduce CI locally, use `pixi run build-ci` so the environment and commands match.
 
 ## Troubleshooting
 
-### Build Fails
+- Missing `_toc.yml` or incorrect ToC: create `book/_toc.yml` (see above), rebuild, and commit.
+- Asset 404s (CSS/JS missing): ensure `BASE_URL` is set to `/book` when building (pixi tasks do this). If deploying to a root path, set `BASE_URL` to `''` and rebuild.
+- Sphinx extension errors (e.g., `sphinx_design`): install required packages (`jupyter-book`, `sphinx-design`) in the same environment used to build (pixi ensures reproducibility).
+- Link or spellcheck failures: run `pixi run linkcheck` and `pixi run spellcheck` locally; both are allowed to fail in CI but help catch issues early.
+- Build still fails in Actions: open the Actions run, inspect logs for failing step output; try reproducing the failing command locally with `pixi run build-ci`.
 
-If the GitHub Actions build fails:
+## Deployment (merge to `main`)
 
-1. Check the Actions tab for error messages
-2. Test the build locally:
-   ```bash
-   jupyter-book build book
-   ```
-3. Fix any errors and commit the changes
+1. Merge your PR to `main`.
+2. CI will run and, on success, publish the content of `website/` to GitHub Pages.
+3. Access the site at `https://gaia-hazlab.github.io` (or your custom domain if configured).
 
-### Pages Not Updating
+## Additional notes
 
-If changes don't appear:
-
-1. Check the Actions tab to ensure the workflow completed
-2. Clear your browser cache
-3. Wait a few minutes - GitHub Pages can take time to update
-
-### Missing Dependencies
-
-If you see dependency errors:
-
-1. Check that `environment.yml` has all required packages
-2. Update the workflow to install any missing dependencies
-
-## Custom Domain (Optional)
-
-To use a custom domain:
-
-1. Add a `CNAME` file to the repository root with your domain
-2. Configure DNS settings with your domain provider
-3. See [GitHub's custom domain documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
-
-## Monitoring
-
-- **Build Status**: Check the badge in README.md
-- **Actions**: Monitor builds in the Actions tab
-- **Logs**: Click on workflow runs to see detailed logs
-
-## Support
-
-For issues with deployment:
-- Check [GitHub Actions documentation](https://docs.github.com/en/actions)
-- Check [Jupyter Book documentation](https://jupyterbook.org)
-- Open an issue in the repository
+- The repo includes `pixi.lock` which pins a reproducible environment (CI uses this). If you need exact versions, use pixi or consult `pixi.lock`.
+- If you want me to commit a polished `book/_toc.yml` tailored to any reordering, tell me the order and I will update it.

@@ -30,24 +30,11 @@ We support multiple data formats to ensure compatibility:
 
 ### Programmatic Access
 
-```python
-# Example: Loading data from DataHub
-import geopandas as gpd
-
-# Load hazard boundaries
-hazard_zones = gpd.read_file('datahub/seismic/fault_lines.geojson')
-
-# Display basic information
-print(hazard_zones.head())
-```
+We are working on a severless data aggregation platform that will provide harmonized data as a service with lean data processing.
 
 ### Web Interface
 
-Access data through our web portal:
-- Browse available datasets
-- Preview data visualizations
-- Download data in various formats
-- Access metadata and documentation
+We will create a web-interface to visualize sensors availabilty, dataset availabilty, and event catalogs.
 
 ## Data Standards
 

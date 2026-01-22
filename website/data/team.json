@@ -129,7 +129,7 @@
     },
        {
       "name": "Hunter Jimenez",
-      "photo": "XX",
+      "photo": "/images/team/XX",
       "role": "Graduate Student",
       "title": "Graduate Student",
       "affiliation": "Civil and Environmental Engineering, University of Washington",
@@ -140,7 +140,7 @@
       "github": "https://github.com/HunterJimenez"   },
       {
       "name": "Morgan Sanger",
-      "photo": "Morgan_Photo.jpg",
+      "photo": "/images/team/Morgan_Photo.jpg",
       "role": "Graduate Student",
       "title": "PhD Student",
       "affiliation": "Civil and Environmental Engineering, University of Washington",

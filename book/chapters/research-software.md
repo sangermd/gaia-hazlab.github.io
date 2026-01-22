@@ -192,7 +192,7 @@ Domain-specific packages developed by the research community for specialized wor
 - Time-dependent velocity monitoring
 - Integration with ObsPy
 
-**Developed by**: Denolle Lab (Marine Denolle, Yiyu Ni, et al.)
+**Developed by**: Denolle Lab ([Marine Denolle](https://denolle-lab.github.io), [Yiyu Ni](https://niyiyu.github.io/), et al.)
 
 ### SeisBench
 **Description**: Benchmark suite for seismological machine learning  
@@ -265,7 +265,7 @@ Domain-specific packages developed by the research community for specialized wor
 - Integration with cloud platforms (AWS, GCS)
 - Fine-tuning capabilities for downstream tasks
 
-**Collaboration**: GAIA HazLab is collaborating with AI2 on landslide detection using rslearn to fine-tune foundation models on SAR imagery and multi-sensor networks (Akash Kharita, Scott Henderson)
+**Collaboration**: GAIA HazLab is collaborating with AI2 on landslide detection using rslearn to fine-tune foundation models on SAR imagery and multi-sensor networks ([Akash Kharita](../website/people.html), Scott Henderson)
 
 ---
 
@@ -320,7 +320,7 @@ We welcome contributions of:
 - Integration guides
 - Best practices documentation
 
-See our [Contributing Guide](../CONTRIBUTING.md) for details.
+See our [Contributing Guide](../../CONTRIBUTING.md) for details.
 
 ---
 

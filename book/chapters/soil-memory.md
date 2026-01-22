@@ -1,10 +1,25 @@
-# Inferring Water Table Depth and Vadose-Zone Saturation From Time-Lapse Seismic Velocity
+# Soil Hydromechanical Memory
 
-*Two implementation angles: (A) Distributed Acoustic Sensing (DAS) cross-sections and (B) Regional seismic networks*
+## 1. Critical Zone as Atmosphere-Solid Earth Gate.
+
+The soil hydromechanical structure has a major control on how water flows through the soils to replenish the subsurface of groundwater, evaporate to bring moisture back to the lower atmosphere, or blocks water from traveling through soils, leading to erosion and flooding. Plants, animals, geomorphological, weathering, and tectonic processes alter dynamically the soil structure, which challenges predictive understanding of the soil's effect on natural hazards and atmospheric dynamics and justify the need to 1) **monitor its state in spate and time**, and 2) **characterize the governing and coupled processes**, so that we can predict hazards today and in the future.
+
+## 2. Characterizing Soil Properties.
+
+How can we characterize the soil properties?
+
+- plants (NDVI)
+- geological structure
+- DEM
+
 
 ---
 
-## Executive summary
+## 3. Turning seismic to saturation and water table
+
+
+*Two implementation angles: (A) Distributed Acoustic Sensing (DAS) cross-sections and (B) Regional seismic networks*
+
 
 We aim to estimate two key geohydrologic state variables using time-lapse shear-wave velocity:
 
@@ -29,14 +44,14 @@ We implement a **coupled inversion** that alternates between:
 
 ---
 
-## 1) Definitions and conventions
+### 1) Definitions and conventions
 
-### Coordinates
+#### Coordinates
 - $z$: depth (m), positive downward from ground surface.
 - DAS cross-section: $x$ (along profile), $z$ (depth), time $t$.
 - Regional network: horizontal location $\mathbf{r}=(x,y)$, depth $z$, time $t$.
 
-### Velocity perturbation
+#### Velocity perturbation
 Select a baseline time $t_0$ and define:
 $$
 \Delta v(\cdot,t) = \frac{V_s(\cdot,t) - V_s(\cdot,t_0)}{V_s(\cdot,t_0)}.
@@ -48,7 +63,7 @@ $$
 
 ---
 
-## 2) Physical model components
+### 2) Physical model components
 
 We treat the observed velocity perturbation as a superposition of hydrologic contributions, optionally augmented with correction factors:
 $$
@@ -62,9 +77,9 @@ This “physics + correction factor” framing is valuable when rock physics ove
 
 ---
 
-## 3) Saturated-zone mapping: $dv/v \rightarrow \Delta h \rightarrow d_{wt}$
+### 3) Saturated-zone mapping: $dv/v \rightarrow \Delta h \rightarrow d_{wt}$
 
-### 3.1 Poroelastic/acoustoelastic link
+#### 3.1 Poroelastic/acoustoelastic link
 Assume the hydrologic component in the saturated zone follows a proportionality:
 $$
 \left(\frac{dv}{v}\right)_{\text{hyd}} = -\frac{S_{sk}\,\beta}{B}\,\Delta h,
@@ -87,7 +102,7 @@ $$
 $$
 with $\chi_{\text{pe}}$ either constant (site-calibrated) or a function of near-surface saturation.
 
-### 3.2 Robust depth aggregation (DAS cross-section)
+#### 3.2 Robust depth aggregation (DAS cross-section)
 Because velocity estimates at a given depth can be noisy, define a saturated-depth mask using the current water table estimate:
 $$
 \mathcal{Z}_{\text{sat}}(x,t) = \{z : z > d_{wt}(x,t) + \delta\},
@@ -103,7 +118,7 @@ $$
 \Delta h(x,t)= -\frac{B}{S_{sk}\beta_{\text{eff}}}\overline{\Delta v}_{\text{sat}}(x,t).
 $$
 
-### 3.3 Convert head to water table depth
+#### 3.3 Convert head to water table depth
 Let $d_{wt,0}(x)$ be the baseline water table depth at $t_0$. Then:
 $$
 d_{wt}(x,t)=d_{wt,0}(x)-\Delta h(x,t).
@@ -112,7 +127,7 @@ $$
 
 ---
 
-## 4) Vadose-zone mapping in the top meter: $V_s \rightarrow S_w$
+### 4) Vadose-zone mapping in the top meter: $V_s \rightarrow S_w$
 
 We use:
 $$
@@ -120,7 +135,7 @@ V_s = \sqrt{\frac{G}{\rho_b}},
 $$
 with saturation-dependent bulk density $\rho_b(S_w)$ and stiffness $G$ controlled by an effective pressure $P_e$ that accounts for suction and dynamic capillarity.
 
-### 4.1 Bulk density mixing
+#### 4.1 Bulk density mixing
 $$
 \rho_b(S_w) = (1-\phi)\rho_s + \phi\left(S_w\rho_w + (1-S_w)\rho_a\right),
 $$
@@ -130,7 +145,7 @@ where:
 - $\rho_w$ water density
 - $\rho_a$ air density
 
-### 4.2 Effective saturation and capillary pressure
+#### 4.2 Effective saturation and capillary pressure
 Define effective saturation:
 $$
 S_e = \frac{S_w - S_r}{1 - S_r},\quad S_e\in[0,1],
@@ -143,7 +158,7 @@ P_c(S_e) = \frac{1}{\alpha}\left(S_e^{-1/m}-1\right)^{1/n}.
 $$
 ($\alpha,n,m$ depend on texture and are calibrated from priors/boreholes.)
 
-### 4.3 Effective pressure including suction and dynamics
+#### 4.3 Effective pressure including suction and dynamics
 Use:
 $$
 P_e = \sigma - p - S_e P_c + \tau \frac{dS_w}{dt},
@@ -153,20 +168,20 @@ where:
 - $p$ pore pressure (often ~0 gauge in vadose zone)
 - $\tau$ dynamic capillary coefficient (optional; increases temporal coupling)
 
-### 4.4 Stiffness closure
+#### 4.4 Stiffness closure
 A stable, commonly used closure is a Hertz–Mindlin-like power law:
 $$
 G(P_e) = G_{\text{ref}}\left(\frac{P_e}{P_{\text{ref}}}\right)^{n_{\text{exp}}},\quad n_{\text{exp}}\approx 1/3.
 $$
 Clip $P_e$ to a small positive value to avoid nonphysical results.
 
-### 4.5 Forward model
+#### 4.5 Forward model
 Given $S_w$ and $\dot S_w$:
 $$
 V_s^{\text{pred}}(S_w) = \sqrt{\frac{G(P_e(S_w,\dot S_w))}{\rho_b(S_w)}}.
 $$
 
-### 4.6 Inversion for $S_w$ (time-recursive)
+#### 4.6 Inversion for $S_w$ (time-recursive)
 For each $x$, each depth $z\in[0,1\ \text{m}]$, and each time step $t_k$:
 
 - If $z \ge d_{wt}(x,t_k)$: enforce **saturation** $S_w=1$.
@@ -182,7 +197,7 @@ This makes the inversion mildly implicit in time (through the dynamic term).
 
 ---
 
-## 5) Rainfall as a dynamical prior (stabilization)
+### 5) Rainfall as a dynamical prior (stabilization)
 
 Velocity-derived saturation can be noisy; rainfall provides a physically meaningful prior. A minimal “bucket + relaxation” model:
 
@@ -201,15 +216,15 @@ Use this prior to:
 
 ---
 
-## 6) Coupled inversion algorithm (explicit workflow)
+### 6) Coupled inversion algorithm (explicit workflow)
 
-### Inputs
+#### Inputs
 - $V_s$ (DAS: $V_s(x,z,t)$; Network: $dv/v(\mathbf{r},t)$ or $V_s(\mathbf{r},z,t)$ if available)
 - Rainfall $P(t)$ or $P(\mathbf{r},t)$
 - Priors: $\phi,\rho_s,S_r,\alpha,n,m,\tau,G_{\text{ref}},P_{\text{ref}},n_{\text{exp}},S_{sk},\beta,B$
 - Baseline water table depth $d_{wt,0}$
 
-### Iterative scheme (per $x$ or $\mathbf{r}$)
+#### Iterative scheme (per $x$ or $\mathbf{r}$)
 1. Compute $\Delta v$ relative to baseline.
 2. Initialize $d_{wt}^{(0)}(t)=d_{wt,0}$.
 3. Repeat for $i=0,\dots,N_{\text{iter}}-1$:
@@ -225,9 +240,9 @@ Use this prior to:
 
 ---
 
-## 7) Two angles: DAS cross-section vs regional network
+### 7) Two angles: DAS cross-section vs regional network
 
-### Angle A — DAS cross-section (dense spatiotemporal imaging)
+#### Angle A — DAS cross-section (dense spatiotemporal imaging)
 
 **Typical data product**
 - $V_s(x,z,t)$ or $dv/v(x,z,t)$ at high spatial sampling (meters to tens of meters) and high cadence.
@@ -255,7 +270,7 @@ Use this prior to:
 
 ---
 
-### Angle B — Regional seismic networks (distributed stations, larger scale)
+#### Angle B — Regional seismic networks (distributed stations, larger scale)
 
 **Typical data products**
 - Coda-wave interferometry or ambient noise yields:
@@ -291,34 +306,34 @@ Use this prior to:
 
 ---
 
-## 8) Calibration strategy (what must be anchored)
+### 8) Calibration strategy (what must be anchored)
 
-### Essential calibrations
+#### Essential calibrations
 - **Saturated mapping constants**: $S_{sk}\beta/B$ (or equivalently $S_{sk},\beta,B$)
   - Fit using well head changes where available.
 - **Vadose parameters**: $\phi,\rho_s,S_r,\alpha,n,m$, and stiffness closure $G_{\text{ref}},n_{\text{exp}}$
   - Fit using shallow soil moisture sensors, lab curves, texture-based priors.
 
-### Recommended anchoring measurements
+#### Recommended anchoring measurements
 - At least one well or piezometer for $d_{wt,0}$ and head changes.
 - One shallow moisture sensor profile (even temporary) for $S_w$ validation.
 - Soil texture estimates to set priors for van Genuchten parameters.
 
 ---
 
-## 9) Diagnostics and sanity checks
+### 9) Diagnostics and sanity checks
 
-### For water table
+#### For water table
 - In the saturated zone, inferred $\Delta h$ should be approximately depth-invariant (hydrostatic consistency).
 - Spatial continuity: $d_{wt}$ should vary smoothly in $x$ unless strong hydrogeologic contrasts exist.
 - Event response: head rise should follow storms with a plausible lag.
 
-### For saturation
+#### For saturation
 - $S_w\in[S_r,1]$ always.
 - Storm response: sharp wetting near surface and slower drainage.
 - Consistency: $S_w\to 1$ approaching the water table (capillary fringe behavior).
 
-### For model mismatch
+#### For model mismatch
 - If saturation inversion repeatedly hits bounds or cannot bracket solutions:
   - revisit stiffness closure parameters and/or $\sigma(z)$
   - smooth $V_s$ in time
@@ -327,7 +342,7 @@ Use this prior to:
 
 ---
 
-## 10) Suggested student/postdoc exercises
+### 10) Suggested student/postdoc exercises
 
 1. **Synthetic test (DAS)**
    - Choose a truth $d_{wt}(x,t)$ and $S_w(x,z,t)$.
@@ -353,15 +368,15 @@ Use this prior to:
 
 ---
 
-## 11) Practical implementation notes
+### 11) Practical implementation notes
 
-### Recommended data structures
+#### Recommended data structures
 - Use `xarray` datasets:
   - `Vs(x,z,t)` and `dvv(x,z,t)`
   - `dwt(x,t)`
   - `Sw_top(x,z_top,t)` where `z_top = z[z<=1m]`
 
-### Numerical stability tips
+#### Numerical stability tips
 - Use robust medians for saturated depth averaging.
 - Use bounded root solves (`brentq`) for $S_w$.
 - Apply temporal smoothing to $V_s$ and/or $S_w$ if needed.
@@ -369,7 +384,7 @@ Use this prior to:
 
 ---
 
-## 12) Limitations and extensions
+### 12) Limitations and extensions
 
 **Limitations**
 - Depth sensitivity assumptions are strongest for DAS cross-sections and weaker for regional networks.
@@ -383,7 +398,7 @@ Use this prior to:
 
 ---
 
-## References (papers driving the framework)
+### References (papers driving the framework)
 - Shi et al. (2025): saturation/density/effective pressure and dynamic capillarity in near-surface velocity response.
 - Clements & Denolle (2023): poroelastic + nonlinear elasticity mapping from \(dv/v\) to hydraulic head / pore pressure.
 - Sun et al. (2025): physics-guided + data-driven correction factors for component models and stress-transmission biases.

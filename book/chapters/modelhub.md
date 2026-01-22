@@ -8,15 +8,13 @@ The ModelHub is a comprehensive collection of machine learning models and algori
 
 ### Hazard Prediction Models
 
-#### Extreme Weather Models
 - **Weather Forecasting**, coupling ACE2 with Amtmospheric River Index (Richard Zhuang and Brandon Kerns), and Clima-X (Aditya Grover). Examples of AR tracking and forecast [here](https://orca.atmos.washington.edu/~bkerns/realtime/ar/)
 - **Heatwave Forecasting** (Greg Hakim)
-- **Storm Detector**, detecting thunderstorm from seismic and weather data using deep learning (Akash Kharita, Alexandra Anderson-Frey, Marine Denolle)
+- **Storm Detector**, detecting thunderstorm from seismic and weather data using deep learning ([Akash Kharita](../website/people.html), Alexandra Anderson-Frey, [Marine Denolle](https://denolle-lab.github.io))
 
-#### Seismic Hazard Models
-- **Earthquake Wavefields**: deep learning models for data-driven full wavefield and peak ground motions reconstruction (nowcasting) and forecasting (lead Yiyu Ni)
-- **Ground Failure Modeling**: Surrogate model to predict liquefaction and ground failure potential index (lead Morgan Sanger), and its coupling to wavefields (Yiyu \& Morgan)
-- **Strong Earthquake Detection**: deep learning model to detect earthquakes are strong ground motions in seisbench ecosystem.
+- **Earthquake Wavefields**: deep learning models for data-driven full wavefield and peak ground motions reconstruction (nowcasting) and forecasting (lead [Yiyu Ni](https://niyiyu.github.io/))
+- **Ground Failure Modeling**: Surrogate model to predict liquefaction and ground failure potential index (lead Morgan Sanger), and its coupling to wavefields ([Yiyu Ni](https://niyiyu.github.io/) & Morgan Sanger)
+- **Large Earthquake Detection**: deep learning model to detect earthquakes are strong ground motions in seisbench ecosystem.
 
 #### Flood Hazard Models
 - **Flood Forecasting**: Flood forecasting using stream gauge data, SWE, and meteorological products.
@@ -27,10 +25,9 @@ The ModelHub is a comprehensive collection of machine learning models and algori
 - **Susceptibility Mapping**: Random forests and gradient boosting for landslide susceptibility
 - **Triggering Models**: Models linking precipitation and seismic triggers to landslide occurrence
 - **Run-out Prediction**: Neural networks for estimating landslide travel distance
-- **Landslides Detection** using high temporal resolution of multi-sensor geophysical networks (seismic, infrasound, tilt, DAS) and high spatial resolution remote sensing imagery (sentinel+SAR) with Akash Kharita, Scott Henderson, and collab with AI2.
+- **Landslides Detection** using high temporal resolution of multi-sensor geophysical networks (seismic, infrasound, tilt, DAS) and high spatial resolution remote sensing imagery (sentinel+SAR) with [Akash Kharita](../website/people.html), Scott Henderson, and collab with AI2.
 
-### Multi-hazard Models
-- **Hydromechanical Model** data-driven approach to turn multi-sensor raw data (non co-located seismic, geodetic, meteorological sensors) into real time hydromechanical properties (Manuela Koepfli)
+- **Hydromechanical Model** data-driven approach to turn multi-sensor raw data (non co-located seismic, geodetic, meteorological sensors) into real time hydromechanical properties ([Manuela Köpfli](../website/people.html))
 <!-- - **Cascading Hazard Models**: Frameworks for modeling hazard interactions -->
 <!-- - **Compound Event Models**: Statistical and ML approaches for compound hazards -->
 <!-- - **Risk Assessment Models**: Integrated models for multi-hazard risk assessment -->
